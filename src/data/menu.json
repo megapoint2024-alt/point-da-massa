@@ -1,0 +1,368 @@
+{
+  "categories": [
+    {
+      "id": "pasteis-fritos",
+      "name": "Pastéis Fritos",
+      "weekendOnly": false,
+      "items": [
+        {
+          "id": "pf-queijo",
+          "name": "Pastel de Queijo",
+          "description": "Pastel frito crocante recheado com queijo",
+          "price": 8.00,
+          "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop"
+        },
+        {
+          "id": "pf-frango",
+          "name": "Pastel de Frango",
+          "description": "Pastel frito crocante recheado com frango desfiado",
+          "price": 8.00,
+          "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop"
+        },
+        {
+          "id": "pf-carne",
+          "name": "Pastel de Carne",
+          "description": "Pastel frito crocante recheado com carne moída",
+          "price": 8.00,
+          "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop"
+        },
+        {
+          "id": "pf-pizza",
+          "name": "Pastel de Pizza",
+          "description": "Pastel frito crocante recheado com pizza",
+          "price": 8.00,
+          "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop"
+        },
+        {
+          "id": "pf-calabresa",
+          "name": "Pastel de Calabresa",
+          "description": "Pastel frito crocante recheado com calabresa",
+          "price": 8.00,
+          "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop"
+        },
+        {
+          "id": "pf-frango-catupiry",
+          "name": "Pastel de Frango com Catupiry",
+          "description": "Pastel frito crocante recheado com frango e catupiry",
+          "price": 10.00,
+          "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop",
+          "special": true
+        },
+        {
+          "id": "pf-charque-queijo",
+          "name": "Pastel de Charque com Queijo",
+          "description": "Pastel frito crocante recheado com charque e queijo",
+          "price": 10.00,
+          "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop",
+          "special": true
+        },
+        {
+          "id": "pf-carne-sol-queijo",
+          "name": "Pastel de Carne de Sol com Queijo",
+          "description": "Pastel frito crocante recheado com carne de sol e queijo",
+          "price": 10.00,
+          "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop",
+          "special": true
+        }
+      ]
+    },
+    {
+      "id": "pasteis-forno",
+      "name": "Pastéis de Forno",
+      "weekendOnly": false,
+      "items": [
+        {
+          "id": "pfn-queijo",
+          "name": "Pastel de Forno de Queijo",
+          "description": "Pastel de forno recheado com queijo",
+          "price": 9.00,
+          "image": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop"
+        },
+        {
+          "id": "pfn-carne",
+          "name": "Pastel de Forno de Carne",
+          "description": "Pastel de forno recheado com carne moída",
+          "price": 9.00,
+          "image": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop"
+        },
+        {
+          "id": "pfn-frango",
+          "name": "Pastel de Forno de Frango",
+          "description": "Pastel de forno recheado com frango desfiado",
+          "price": 9.00,
+          "image": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop"
+        }
+      ]
+    },
+    {
+      "id": "pizzas",
+      "name": "Pizzas",
+      "weekendOnly": false,
+      "hasSizes": true,
+      "sizes": [
+        { "id": "brotinho", "name": "Brotinho", "multiplier": 0.6 },
+        { "id": "pequena", "name": "Pequena", "multiplier": 0.8 },
+        { "id": "media", "name": "Média", "multiplier": 1.0 },
+        { "id": "grande", "name": "Grande", "multiplier": 1.3 }
+      ],
+      "basePrice": 35.00,
+      "items": [
+        {
+          "id": "pz-4-queijos",
+          "name": "Pizza 4 Queijos",
+          "description": "Queijo mussarela, provolone, parmesão e gorgonzola",
+          "price": 35.00,
+          "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=300&fit=crop"
+        },
+        {
+          "id": "pz-frango-catupiry",
+          "name": "Pizza de Frango com Catupiry",
+          "description": "Frango desfiado com catupiry",
+          "price": 35.00,
+          "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=300&fit=crop"
+        },
+        {
+          "id": "pz-calabresa-bacon",
+          "name": "Pizza de Calabresa com Bacon",
+          "description": "Calabresa com bacon crocante",
+          "price": 35.00,
+          "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=300&fit=crop"
+        },
+        {
+          "id": "pz-carne-sol",
+          "name": "Pizza de Carne de Sol",
+          "description": "Carne de sol com queijo coalho",
+          "price": 40.00,
+          "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=300&fit=crop",
+          "special": true
+        },
+        {
+          "id": "pz-charque",
+          "name": "Pizza de Charque",
+          "description": "Charque com queijo e cebola",
+          "price": 40.00,
+          "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=300&fit=crop",
+          "special": true
+        },
+        {
+          "id": "pz-romeu-julieta",
+          "name": "Pizza Romeu e Julieta",
+          "description": "Queijo com goiabada",
+          "price": 40.00,
+          "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=300&fit=crop",
+          "special": true
+        }
+      ]
+    },
+    {
+      "id": "esfihas",
+      "name": "Esfihas",
+      "weekendOnly": false,
+      "hasSizes": true,
+      "sizes": [
+        { "id": "brotinho", "name": "Brotinho", "multiplier": 0.6 },
+        { "id": "pequena", "name": "Pequena", "multiplier": 0.8 },
+        { "id": "media", "name": "Média", "multiplier": 1.0 },
+        { "id": "grande", "name": "Grande", "multiplier": 1.3 }
+      ],
+      "basePrice": 25.00,
+      "items": [
+        {
+          "id": "es-4-queijos",
+          "name": "Esfiha 4 Queijos",
+          "description": "Queijo mussarela, provolone, parmesão e gorgonzola",
+          "price": 25.00,
+          "image": "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=400&h=300&fit=crop"
+        },
+        {
+          "id": "es-frango-catupiry",
+          "name": "Esfiha de Frango com Catupiry",
+          "description": "Frango desfiado com catupiry",
+          "price": 25.00,
+          "image": "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=400&h=300&fit=crop"
+        },
+        {
+          "id": "es-calabresa-bacon",
+          "name": "Esfiha de Calabresa com Bacon",
+          "description": "Calabresa com bacon crocante",
+          "price": 25.00,
+          "image": "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=400&h=300&fit=crop"
+        },
+        {
+          "id": "es-carne-sol",
+          "name": "Esfiha de Carne de Sol",
+          "description": "Carne de sol com queijo coalho",
+          "price": 30.00,
+          "image": "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=400&h=300&fit=crop",
+          "special": true
+        },
+        {
+          "id": "es-charque",
+          "name": "Esfiha de Charque",
+          "description": "Charque com queijo e cebola",
+          "price": 30.00,
+          "image": "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=400&h=300&fit=crop",
+          "special": true
+        },
+        {
+          "id": "es-romeu-julieta",
+          "name": "Esfiha Romeu e Julieta",
+          "description": "Queijo com goiabada",
+          "price": 30.00,
+          "image": "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=400&h=300&fit=crop",
+          "special": true
+        }
+      ]
+    },
+    {
+      "id": "hamburgueres",
+      "name": "Hambúrgueres",
+      "weekendOnly": false,
+      "items": [
+        {
+          "id": "hb-tradicional",
+          "name": "Hambúrguer Tradicional",
+          "description": "Hambúrguer com molho especial de queijos e molhos comuns",
+          "price": 18.00,
+          "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop"
+        },
+        {
+          "id": "hb-costela",
+          "name": "Hambúrguer de Costela",
+          "description": "Hambúrguer de costela desfiada com molho especial",
+          "price": 25.00,
+          "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop",
+          "special": true
+        },
+        {
+          "id": "hb-cupim",
+          "name": "Hambúrguer de Cupim",
+          "description": "Hambúrguer de cupim com molho especial",
+          "price": 28.00,
+          "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop",
+          "special": true
+        },
+        {
+          "id": "hb-picanha",
+          "name": "Hambúrguer de Picanha",
+          "description": "Hambúrguer de picanha com molho especial",
+          "price": 32.00,
+          "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop",
+          "special": true
+        }
+      ]
+    },
+    {
+      "id": "lanches-chapa",
+      "name": "Lanches na Chapa",
+      "weekendOnly": false,
+      "items": [
+        {
+          "id": "lc-cachorro-quente",
+          "name": "Cachorro-quente na Chapa",
+          "description": "Cachorro-quente enrolado na chapa com queijo parmesão",
+          "price": 12.00,
+          "image": "https://images.unsplash.com/photo-1634227369414-278b3e62909c?w=400&h=300&fit=crop"
+        }
+      ]
+    },
+    {
+      "id": "fim-de-semana",
+      "name": "Cardápio de Fim de Semana",
+      "weekendOnly": true,
+      "items": [
+        {
+          "id": "fs-panqueca-carne",
+          "name": "Panqueca de Carne",
+          "description": "Panqueca recheada com carne moída",
+          "price": 22.00,
+          "image": "https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=400&h=300&fit=crop"
+        },
+        {
+          "id": "fs-panqueca-frango",
+          "name": "Panqueca de Frango",
+          "description": "Panqueca recheada com frango desfiado no molho 4 queijos",
+          "price": 24.00,
+          "image": "https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=400&h=300&fit=crop"
+        },
+        {
+          "id": "fs-lasanha-carne",
+          "name": "Lasanha de Carne",
+          "description": "Lasanha tradicional com carne moída",
+          "price": 28.00,
+          "image": "https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=400&h=300&fit=crop"
+        },
+        {
+          "id": "fs-lasanha-frango",
+          "name": "Lasanha de Frango",
+          "description": "Lasanha com frango desfiado",
+          "price": 28.00,
+          "image": "https://images.unsplash.com/photo-1574894709920-11b28e7367e3?w=400&h=300&fit=crop"
+        },
+        {
+          "id": "fs-torta-frango",
+          "name": "Torta de Frango",
+          "description": "Torta de frango com recheio cremoso",
+          "price": 20.00,
+          "image": "https://images.unsplash.com/photo-1568571780765-9276ac8b75a2?w=400&h=300&fit=crop"
+        },
+        {
+          "id": "fs-cuscuz-recheado",
+          "name": "Cuscuz Recheado",
+          "description": "Cuscuz tradicional recheado com carne e queijo",
+          "price": 18.00,
+          "image": "https://images.unsplash.com/photo-1534939561126-855f6d91c279?w=400&h=300&fit=crop"
+        },
+        {
+          "id": "fs-macaxeira-carne-sol",
+          "name": "Macaxeira com Carne de Sol",
+          "description": "Macaxeira cozida com carne de sol e queijo coalho",
+          "price": 22.00,
+          "image": "https://images.unsplash.com/photo-1585937421612-70a008356f36?w=400&h=300&fit=crop"
+        }
+      ]
+    },
+    {
+      "id": "bebidas",
+      "name": "Bebidas/Açaí/Sorvetes",
+      "weekendOnly": false,
+      "hasSizes": true,
+      "sizes": [
+        { "id": "300ml", "name": "300ml", "multiplier": 0.8 },
+        { "id": "400ml", "name": "400ml", "multiplier": 1.0 },
+        { "id": "self-service", "name": "Self Service", "multiplier": 1.3 }
+      ],
+      "basePrice": 15.00,
+      "items": [
+        {
+          "id": "bd-suco-polpa",
+          "name": "Suco de Polpa Natural",
+          "description": "Sucos de polpa natural variados",
+          "price": 8.00,
+          "image": "https://images.unsplash.com/photo-1546173159-315724a31696?w=400&h=300&fit=crop"
+        },
+        {
+          "id": "bd-refrigerante",
+          "name": "Refrigerante",
+          "description": "Refrigerantes variados",
+          "price": 6.00,
+          "image": "https://images.unsplash.com/photo-1527960471264-932f39eb5846?w=400&h=300&fit=crop"
+        },
+        {
+          "id": "bd-acai",
+          "name": "Açaí",
+          "description": "Açaí cremoso com coberturas variadas",
+          "price": 15.00,
+          "image": "https://images.unsplash.com/photo-1590191158217-03cea2c47fb5?w=400&h=300&fit=crop"
+        },
+        {
+          "id": "bd-sorvete",
+          "name": "Sorvete",
+          "description": "Sorvetes com coberturas variadas",
+          "price": 12.00,
+          "image": "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=400&h=300&fit=crop"
+        }
+      ]
+    }
+  ]
+}
