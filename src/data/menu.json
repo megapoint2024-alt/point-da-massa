@@ -100,10 +100,9 @@
       "weekendOnly": false,
       "hasSizes": true,
       "sizes": [
-        { "id": "brotinho", "name": "Brotinho", "multiplier": 0.6 },
         { "id": "pequena", "name": "Pequena", "multiplier": 0.8 },
-        { "id": "media", "name": "Média", "multiplier": 1.0 },
-        { "id": "grande", "name": "Grande", "multiplier": 1.3 }
+        { "id": "grande", "name": "Grande", "multiplier": 1.0 },
+        { "id": "familia", "name": "Família", "multiplier": 1.5 }
       ],
       "basePrice": 35.00,
       "items": [
@@ -158,14 +157,7 @@
       "id": "esfihas",
       "name": "Esfihas",
       "weekendOnly": false,
-      "hasSizes": true,
-      "sizes": [
-        { "id": "brotinho", "name": "Brotinho", "multiplier": 0.6 },
-        { "id": "pequena", "name": "Pequena", "multiplier": 0.8 },
-        { "id": "media", "name": "Média", "multiplier": 1.0 },
-        { "id": "grande", "name": "Grande", "multiplier": 1.3 }
-      ],
-      "basePrice": 25.00,
+      "hasSizes": false,
       "items": [
         {
           "id": "es-4-queijos",
@@ -324,15 +316,9 @@
     },
     {
       "id": "bebidas",
-      "name": "Bebidas/Açaí/Sorvetes",
+      "name": "Bebidas/Suco/Açaí/Sorvetes",
       "weekendOnly": false,
-      "hasSizes": true,
-      "sizes": [
-        { "id": "300ml", "name": "300ml", "multiplier": 0.8 },
-        { "id": "400ml", "name": "400ml", "multiplier": 1.0 },
-        { "id": "self-service", "name": "Self Service", "multiplier": 1.3 }
-      ],
-      "basePrice": 15.00,
+      "hasSizes": false,
       "items": [
         {
           "id": "bd-suco-polpa",
@@ -363,6 +349,18 @@
           "image": "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=400&h=300&fit=crop"
         }
       ]
+    },
+    {
+      "id": "combo",
+      "name": "Combo",
+      "weekendOnly": false,
+      "items": []
+    },
+    {
+      "id": "promocao",
+      "name": "Promoção",
+      "weekendOnly": false,
+      "items": []
     }
   ]
 }

@@ -22,6 +22,12 @@ function Menu({ navigateTo, menuData, addToCart, selectedCategory }) {
   const handleAddToCart = () => {
     if (!selectedItem || !activeCategoryData) return
     
+    // Verificar se é categoria de fim de semana e se não é fim de semana
+    if (activeCategoryData.weekendOnly && !isWeekend) {
+      alert('⚠️ Este item só pode ser pedido aos sábados e domingos!')
+      return
+    }
+    
     const size = activeCategoryData.hasSizes ? selectedSize : null
     addToCart(selectedItem, size, observation, quantity)
     
@@ -38,6 +44,177 @@ function Menu({ navigateTo, menuData, addToCart, selectedCategory }) {
     if (activeCategoryData?.hasSizes) {
       setSelectedSize(activeCategoryData.sizes[0])
     }
+  }
+
+  const getObservationPlaceholder = (item) => {
+    const itemName = item.name.toLowerCase()
+    const categoryName = activeCategoryData?.name.toLowerCase() || ''
+    const categoryId = activeCategoryData?.id || ''
+    
+    // Bebidas/Suco/Açaí/Sorvetes
+    if (categoryId === 'bebidas' || categoryName.includes('bebidas') || categoryName.includes('açai') || categoryName.includes('sorvete')) {
+      if (itemName.includes('suco') || itemName.includes('polpa')) {
+        return 'Ex: goiaba, limão, maracujá, etc.'
+      } else if (itemName.includes('açai')) {
+        return 'Ex: banana, granola, mel, etc.'
+      } else if (itemName.includes('sorvete')) {
+        return 'Ex: misto, morango, chocolate, etc.'
+      } else if (itemName.includes('refrigerante')) {
+        return 'Ex: cola, guaraná, laranja, etc.'
+      } else if (itemName.includes('água') || itemName.includes('agua')) {
+        return 'Ex: com gás, sem gás, gelada, etc.'
+      } else {
+        return 'Ex: gelado, bem gelado, etc.'
+      }
+    }
+    
+    // Pizzas
+    if (categoryId === 'pizzas' || categoryName.includes('pizza')) {
+      if (itemName.includes('4 queijos')) {
+        return 'Ex: sem parmesão, extra mussarela, etc.'
+      } else if (itemName.includes('frango') || itemName.includes('catupiry')) {
+        return 'Ex: sem catupiry, extra frango, etc.'
+      } else if (itemName.includes('calabresa') || itemName.includes('bacon')) {
+        return 'Ex: sem bacon, extra calabresa, etc.'
+      } else if (itemName.includes('carne de sol') || itemName.includes('charque')) {
+        return 'Ex: menos sal, sem queijo, etc.'
+      } else if (itemName.includes('romeu') || itemName.includes('julieta') || itemName.includes('goiabada')) {
+        return 'Ex: sem goiabada, extra queijo, etc.'
+      } else {
+        return 'Ex: sem cebola, borda recheada, etc.'
+      }
+    }
+    
+    // Hambúrgueres
+    if (categoryId === 'hamburgueres' || categoryName.includes('hambúrguer')) {
+      if (itemName.includes('tradicional')) {
+        return 'Ex: sem picles, extra queijo, etc.'
+      } else if (itemName.includes('costela')) {
+        return 'Ex: sem molho, extra carne, etc.'
+      } else if (itemName.includes('cupim')) {
+        return 'Ex: bem passado, sem sal, etc.'
+      } else if (itemName.includes('picanha')) {
+        return 'Ex: mal passada, extra bacon, etc.'
+      } else {
+        return 'Ex: sem picles, extra queijo, etc.'
+      }
+    }
+    
+    // Pastéis Fritos
+    if (categoryId === 'pasteis-fritos' || categoryName.includes('pastel')) {
+      if (itemName.includes('queijo')) {
+        return 'Ex: extra queijo, bem passado, etc.'
+      } else if (itemName.includes('frango')) {
+        return 'Ex: sem cebola, extra frango, etc.'
+      } else if (itemName.includes('carne')) {
+        return 'Ex: bem passado, pouco sal, etc.'
+      } else if (itemName.includes('pizza')) {
+        return 'Ex: sem azeitona, extra queijo, etc.'
+      } else if (itemName.includes('calabresa')) {
+        return 'Ex: sem cebola, extra calabresa, etc.'
+      } else if (itemName.includes('catupiry')) {
+        return 'Ex: sem catupiry, extra frango, etc.'
+      } else if (itemName.includes('charque') || itemName.includes('queijo') && itemName.includes('charque')) {
+        return 'Ex: sem charque, pouco sal, etc.'
+      } else if (itemName.includes('carne de sol') || itemName.includes('queijo') && itemName.includes('sol')) {
+        return 'Ex: menos sal, sem queijo, etc.'
+      } else {
+        return 'Ex: extra queijo, bem passado, etc.'
+      }
+    }
+    
+    // Pastéis de Forno
+    if (categoryId === 'pasteis-forno' || categoryName.includes('forno')) {
+      if (itemName.includes('queijo')) {
+        return 'Ex: extra queijo, bem assado, etc.'
+      } else if (itemName.includes('carne')) {
+        return 'Ex: bem assado, pouco sal, etc.'
+      } else if (itemName.includes('frango')) {
+        return 'Ex: sem cebola, extra frango, etc.'
+      } else {
+        return 'Ex: extra queijo, bem assado, etc.'
+      }
+    }
+    
+    // Esfihas
+    if (categoryId === 'esfihas' || categoryName.includes('esfiha')) {
+      if (itemName.includes('4 queijos')) {
+        return 'Ex: sem parmesão, extra mussarela, etc.'
+      } else if (itemName.includes('frango') || itemName.includes('catupiry')) {
+        return 'Ex: sem catupiry, extra frango, etc.'
+      } else if (itemName.includes('calabresa') || itemName.includes('bacon')) {
+        return 'Ex: sem bacon, extra calabresa, etc.'
+      } else if (itemName.includes('carne de sol') || itemName.includes('charque')) {
+        return 'Ex: menos sal, sem queijo, etc.'
+      } else if (itemName.includes('romeu') || itemName.includes('julieta') || itemName.includes('goiabada')) {
+        return 'Ex: sem goiabada, extra queijo, etc.'
+      } else {
+        return 'Ex: sem cebola, recheio extra, etc.'
+      }
+    }
+    
+    // Lanches na Chapa
+    if (categoryId === 'lanches-chapa' || categoryName.includes('chapa')) {
+      if (itemName.includes('cachorro') || itemName.includes('quente')) {
+        return 'Ex: sem queijo, bem assado, etc.'
+      } else {
+        return 'Ex: sem queijo, bem assado, etc.'
+      }
+    }
+    
+    // Combo
+    if (categoryId === 'combo' || categoryName.includes('combo')) {
+      if (itemName.includes('pizza')) {
+        return 'Ex: trocar sabor, sem refrigerante, etc.'
+      } else if (itemName.includes('hambúrguer') || itemName.includes('batata')) {
+        return 'Ex: sem batata, trocar bebida, etc.'
+      } else if (itemName.includes('batata')) {
+        return 'Ex: sem cheddar, pouco sal, etc.'
+      } else {
+        return 'Ex: sem batata, trocar bebida, etc.'
+      }
+    }
+    
+    // Promoção
+    if (categoryId === 'promocao' || categoryName.includes('promoção') || categoryName.includes('promocao')) {
+      if (itemName.includes('macaxeira') || itemName.includes('carne de sol')) {
+        return 'Ex: pouco sal, sem nata, etc.'
+      } else {
+        return 'Ex: pouco sal, sem molho, etc.'
+      }
+    }
+    
+    // Cardápio de fim de semana
+    if (categoryId === 'fim-de-semana' || categoryName.includes('fim de semana')) {
+      if (itemName.includes('panqueca')) {
+        if (itemName.includes('carne')) {
+          return 'Ex: pouco sal, sem molho, etc.'
+        } else if (itemName.includes('frango')) {
+          return 'Ex: sem queijo, pouco molho, etc.'
+        } else {
+          return 'Ex: pouco sal, sem molho, etc.'
+        }
+      } else if (itemName.includes('lasanha')) {
+        if (itemName.includes('carne')) {
+          return 'Ex: pouco sal, sem queijo, etc.'
+        } else if (itemName.includes('frango')) {
+          return 'Ex: sem queijo, pouco molho, etc.'
+        } else {
+          return 'Ex: pouco sal, sem queijo, etc.'
+        }
+      } else if (itemName.includes('torta')) {
+        return 'Ex: sem massa, pouco recheio, etc.'
+      } else if (itemName.includes('cuscuz')) {
+        return 'Ex: pouco sal, sem carne, etc.'
+      } else if (itemName.includes('macaxeira')) {
+        return 'Ex: pouco sal, sem queijo, etc.'
+      } else {
+        return 'Ex: pouco sal, sem molho, etc.'
+      }
+    }
+    
+    // Padrão
+    return 'Ex: Sem cebola, pouco sal, etc.'
   }
 
   return (
@@ -68,18 +245,6 @@ function Menu({ navigateTo, menuData, addToCart, selectedCategory }) {
           {menuData.categories.map((category) => {
             const isWeekendItem = category.weekendOnly
             
-            if (isWeekendItem && !isWeekend) {
-              return (
-                <div
-                  key={category.id}
-                  className="flex-shrink-0 bg-gray-200 text-gray-500 px-4 py-2 rounded-full text-sm font-semibold cursor-not-allowed"
-                  title="Disponível apenas nos fins de semana"
-                >
-                  {category.name} 🔒
-                </div>
-              )
-            }
-            
             return (
               <button
                 key={category.id}
@@ -107,7 +272,7 @@ function Menu({ navigateTo, menuData, addToCart, selectedCategory }) {
         <div className="container mx-auto px-4 mb-4">
           <div className="bg-yellow-100 border-l-4 border-yellow-500 p-4 rounded">
             <p className="text-yellow-700 font-semibold">
-              ⚠️ Este item está disponível apenas aos sábados e domingos
+              ⚠️ Pedidos desta categoria apenas aos sábados e domingos
             </p>
           </div>
         </div>
@@ -150,6 +315,11 @@ function Menu({ navigateTo, menuData, addToCart, selectedCategory }) {
                   <span className="text-xl font-bold text-primary">
                     R$ {item.price.toFixed(2)}
                   </span>
+                  {activeCategoryData.weekendOnly && !isWeekend && (
+                    <span className="text-xs text-orange-600 font-semibold">
+                      🔒 Apenas fim de semana
+                    </span>
+                  )}
                   {activeCategoryData.hasSizes && (
                     <span className="text-xs text-gray-500">
                       Tamanhos disponíveis
@@ -255,7 +425,7 @@ function Menu({ navigateTo, menuData, addToCart, selectedCategory }) {
                 <textarea
                   value={observation}
                   onChange={(e) => setObservation(e.target.value)}
-                  placeholder="Ex: Sem cebola, pouco sal, etc."
+                  placeholder={getObservationPlaceholder(selectedItem)}
                   className="w-full p-3 border-2 border-gray-200 rounded-lg focus:border-primary focus:outline-none"
                   rows="3"
                 />

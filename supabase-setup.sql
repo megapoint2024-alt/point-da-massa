@@ -6,6 +6,8 @@ CREATE TABLE IF NOT EXISTS categorias (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   nome TEXT NOT NULL,
   id_categoria TEXT UNIQUE NOT NULL,
+  icone TEXT DEFAULT '🧃',
+  imagem_url TEXT,
   fim_de_semana BOOLEAN DEFAULT FALSE,
   tem_tamanhos BOOLEAN DEFAULT FALSE,
   tamanhos JSONB,

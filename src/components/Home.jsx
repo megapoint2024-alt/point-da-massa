@@ -1,9 +1,17 @@
 import heroImg from '../assets/hero.png'
 
+const WHATSAPP_NUMBER = '5583991377547'
+const SITE_URL = 'https://point-da-massa.vercel.app'
+
 function Home({ navigateTo, menuData }) {
-  const featuredItems = menuData.categories.flatMap(cat => 
+  const getWhatsAppUrl = () => {
+    const message = `Olá! 👋 Seja bem-vindo(a) à Point da Massa! Confira nosso cardápio completo aqui: ${SITE_URL} Como posso te ajudar hoje?`
+    const encodedMessage = encodeURIComponent(message)
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`
+  }
+  const featuredItems = menuData?.categories?.flatMap(cat => 
     cat.items.slice(0, 2).map(item => ({ ...item, category: cat.name }))
-  ).slice(0, 6)
+  ).slice(0, 6) || []
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-warm to-orange-50">
@@ -16,12 +24,20 @@ function Home({ navigateTo, menuData }) {
             </div>
             <h1 className="text-2xl font-bold font-rounded">Point da Massa</h1>
           </div>
-          <button 
-            onClick={() => navigateTo('cart')}
-            className="relative bg-secondary hover:bg-accent text-white px-4 py-2 rounded-full font-semibold transition-colors"
-          >
-            🛒 Carrinho
-          </button>
+          <div className="flex gap-2">
+            <button
+              onClick={() => navigateTo('location')}
+              className="bg-secondary hover:bg-accent text-white px-4 py-2 rounded-full font-semibold transition-colors"
+            >
+              📍 Localização
+            </button>
+            <button
+              onClick={() => navigateTo('cart')}
+              className="relative bg-secondary hover:bg-accent text-white px-4 py-2 rounded-full font-semibold transition-colors"
+            >
+              🛒 Carrinho
+            </button>
+          </div>
         </div>
       </header>
 
@@ -29,14 +45,12 @@ function Home({ navigateTo, menuData }) {
       <section className="container mx-auto px-4 py-8 text-center">
         <div className="relative rounded-3xl shadow-xl overflow-hidden mb-8 border-4 border-primary">
           <div 
-            className="absolute inset-0 bg-cover bg-center scale-150"
+            className="absolute inset-0 bg-cover bg-bottom scale-140"
             style={{ backgroundImage: `url(${heroImg})` }}
           ></div>
           <div className="absolute inset-0 bg-black bg-opacity-50"></div>
           <div className="relative z-10 p-12">
-            <div className="w-32 h-32 mx-auto mb-4 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center border-8 border-accent shadow-2xl">
-              <span className="text-6xl">🍽️</span>
-            </div>
+           
             <h2 className="text-4xl font-bold text-white mb-2 font-rounded">
               Point da Massa
             </h2>
@@ -106,13 +120,22 @@ function Home({ navigateTo, menuData }) {
               onClick={() => navigateTo('menu', category.id)}
               className="bg-white rounded-xl shadow-md p-4 border-2 border-orange-200 hover:border-primary hover:shadow-lg transition-all"
             >
-              <div className="text-3xl mb-2">
-                {category.id === 'pasteis-fritos' ? '🥟' :
-                 category.id === 'pasteis-forno' ? '🥐' :
-                 category.id === 'pizzas' ? '🍕' :
-                 category.id === 'esfihas' ? '🥙' :
-                 category.id === 'hamburgueres' ? '🍔' :
-                 category.id === 'fim-de-semana' ? '🍽️' : '🧃'}
+              <div className="w-16 h-16 mx-auto mb-2 rounded-lg overflow-hidden bg-gray-100">
+                {category.imageUrl ? (
+                  <img
+                    src={category.imageUrl}
+                    alt={category.name}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.style.display = 'none'
+                      e.target.parentElement.innerHTML = `<span class="text-3xl flex items-center justify-center h-full">${category.icon || '🧃'}</span>`
+                    }}
+                  />
+                ) : (
+                  <span className="text-3xl flex items-center justify-center h-full">
+                    {category.icon || '🧃'}
+                  </span>
+                )}
               </div>
               <span className="text-sm font-semibold text-gray-700 font-rounded">
                 {category.name}
@@ -125,15 +148,24 @@ function Home({ navigateTo, menuData }) {
       {/* Footer */}
       <footer className="bg-primary text-white py-6 mt-8">
         <div className="container mx-auto px-4 text-center">
-          <a 
-            href="https://wa.me/5583991377547" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="font-rounded hover:text-orange-200 transition-colors"
-          >
-            📍 Boqueirão, Paraíba | 📱 Peça pelo WhatsApp
-          </a>
-          <p className="text-sm mt-2 opacity-80">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-4 mb-2">
+            <a
+              href="/location"
+              className="font-rounded hover:text-orange-200 transition-colors"
+            >
+              📍 Rua José Cabral da Silva, 107, Centro, Boqueirão - PB
+            </a>
+            <span className="hidden md:inline">|</span>
+            <a
+              href={getWhatsAppUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-rounded hover:text-orange-200 transition-colors"
+            >
+              📱 Peça pelo WhatsApp
+            </a>
+          </div>
+          <p className="text-sm opacity-80">
             © 2024 Point da Massa - Todos os direitos reservados
           </p>
         </div>

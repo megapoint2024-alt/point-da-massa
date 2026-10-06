@@ -5,6 +5,7 @@ import Home from './components/Home'
 import Menu from './components/Menu'
 import Cart from './components/Cart'
 import Checkout from './components/Checkout'
+import Location from './components/Location'
 import AdminLogin from './components/admin/AdminLogin'
 import AdminDashboard from './components/admin/AdminDashboard'
 import './index.css'
@@ -40,6 +41,8 @@ function AppContent() {
           categories: categories.map(cat => ({
             id: cat.id_categoria,
             name: cat.nome,
+            icon: cat.icone || '🧃',
+            imageUrl: cat.imagem_url,
             weekendOnly: cat.fim_de_semana,
             hasSizes: cat.tem_tamanhos,
             sizes: cat.tamanhos,
@@ -138,15 +141,23 @@ function AppContent() {
             />
           } 
         />
-        <Route 
-          path="/checkout" 
+        <Route
+          path="/checkout"
           element={
-            <Checkout 
-              navigateTo={navigateTo} 
-              cart={cart} 
+            <Checkout
+              navigateTo={navigateTo}
+              cart={cart}
               clearCart={clearCart}
             />
-          } 
+          }
+        />
+        <Route
+          path="/location"
+          element={
+            <Location
+              navigateTo={navigateTo}
+            />
+          }
         />
         <Route 
           path="/admin" 
@@ -158,6 +169,7 @@ function AppContent() {
                   setAdminUser(null)
                   navigate('/')
                 }}
+                onRefresh={loadMenuData}
               />
             ) : (
               <AdminLogin 
