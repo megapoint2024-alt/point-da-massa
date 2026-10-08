@@ -24,6 +24,7 @@ function Checkout({ navigateTo, cart, clearCart }) {
   }
 
   const generateWhatsAppMessage = () => {
+    // Arquivo salvo em UTF-8 para garantir que emojis sejam exibidos corretamente no WhatsApp
     const orderNumber = Math.floor(Math.random() * 10000)
     const timestamp = new Date().toLocaleString('pt-BR')
     
