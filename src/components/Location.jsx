@@ -7,8 +7,9 @@ function Location({ navigateTo }) {
   const navigate = useNavigate()
 
   const address = 'Rua José Cabral da Silva, 107, Centro, Boqueirão - PB, 58450-000'
-  const encodedAddress = encodeURIComponent(address)
-  const mapUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodedAddress}`
+  const latitude = -7.481705
+  const longitude = -36.135646
+  const mapUrl = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${latitude},${longitude}`
 
   const getWhatsAppUrl = () => {
     const message = `Olá! 👋 Seja bem-vindo(a) à Point da Massa! Confira nosso cardápio completo aqui: ${SITE_URL} Como posso te ajudar hoje?`
@@ -53,7 +54,7 @@ function Location({ navigateTo }) {
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href={`https://www.google.com/maps/search/?api=1&query=${encodedAddress}`}
+                href={`https://www.google.com/maps/search/?api=1&query=${latitude},${longitude}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 bg-primary hover:bg-accent text-white py-3 px-6 rounded-full font-bold text-center transition-all"
