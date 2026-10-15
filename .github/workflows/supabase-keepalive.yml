@@ -1,0 +1,25 @@
+name: Supabase Keepalive
+
+on:
+  schedule:
+    # Executa uma vez por dia às 3:00 UTC (meia-noite no horário de Brasília)
+    - cron: '0 3 * * *'
+  workflow_dispatch: # Permite execução manual
+
+jobs:
+  keepalive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase database
+        run: |
+          RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" \
+            -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
+            -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}" \
+            "${{ secrets.SUPABASE_URL }}/rest/v1/categorias?select=id&limit=1")
+          
+          if [ "$RESPONSE" -ne 200 ]; then
+            echo "Error: Supabase returned HTTP $RESPONSE"
+            exit 1
+          fi
+          
+          echo "Supabase keepalive successful (HTTP $RESPONSE)"
